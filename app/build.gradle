@@ -117,5 +117,5 @@ dependencies {
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.1'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
     debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.1'
-    implementation 'com.github.VolleyCN:FlowLayout:1.0.13'
+    implementation 'com.github.VolleyCN:Android-FlowLayout:1.0.01'
 }
