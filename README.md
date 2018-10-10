@@ -12,5 +12,5 @@ allprojects {
 
 2.在项目build.gradle中
 dependencies {
-	        implementation 'com.github.VolleyCN:FlowLayout:1.0.13'
+	        implementation 'com.github.VolleyCN:FlowLayout:1.0.01'
 }
