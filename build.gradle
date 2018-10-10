@@ -1,0 +1,37 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.0'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+ext {
+    compileSdkVersion = 28
+    buildToolsVersion = '28.0.2'
+    minSdkVersion = 16
+    targetSdkVersion = 28
+    appTargetSdkVersion = 28
+    versionCode = 13
+    versionName = '1.0.01'
+    sdkSourceCompatibility = 1.8
+    sdkTargetCompatibility = 1.8
+    appSourceCompatibility = 1.8
+    appTargetCompatibility = 1.8
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
