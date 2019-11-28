@@ -1,4 +1,4 @@
-package com.volley.library.flowtag.adaper;
+package com.volley.library.flowtag.adapter;
 
 import android.graphics.Bitmap;
 import android.graphics.Paint;

@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.volley.library.flowtag.adaper.BaseFlowAdapter;
+import com.volley.library.flowtag.adapter.BaseFlowAdapter;
 
 import java.util.HashSet;
 import java.util.List;

@@ -14,8 +14,8 @@ import com.orhanobut.logger.Logger;
 import com.volley.flowlayout.domain.SelectBean;
 import com.volley.flowlayout.domain.TagBean;
 import com.volley.library.flowtag.FlowTagLayout;
-import com.volley.library.flowtag.adaper.BaseFlowAdapter;
-import com.volley.library.flowtag.adaper.BaseTagHolder;
+import com.volley.library.flowtag.adapter.BaseFlowAdapter;
+import com.volley.library.flowtag.adapter.BaseTagHolder;
 
 import java.util.ArrayList;
 import java.util.List;

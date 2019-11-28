@@ -1,4 +1,4 @@
-package com.volley.library.flowtag.adaper;
+package com.volley.library.flowtag.adapter;
 
 import android.content.Context;
 import android.support.annotation.IntRange;
