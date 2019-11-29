@@ -82,10 +82,8 @@ public class MainActivity extends AppCompatActivity {
         recycler.setAdapter(mSelectAdapter);
         initData();
     }
-
-    private List<SelectBean> selects = new ArrayList<>();
     String[] titles = {"热门", "产品", "男生", "女生", "其他"};
-
+    private List<SelectBean> selects = new ArrayList<>();
     private void initData() {
         for (int i = 0; i < titles.length; i++) {
             SelectBean selectBean = new SelectBean();

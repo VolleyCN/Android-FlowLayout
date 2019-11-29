@@ -19,10 +19,10 @@ class FlowTagLayout<T : OptionCheck?> : ViewGroup {
     private var mLayoutInflater: LayoutInflater
     private val mSelects: MutableSet<T> = HashSet()
     private var spanCount = 0
-    protected var mDataSetObserver: AdapterDataSetObserver? = null
-    protected var mAdapter: BaseFlowAdapter<*, *>? = null
-    protected var mOnTagClickListener: OnTagClickListener? = null
-    protected var mOnTagSelectListener: OnTagSelectListener<*>? = null
+    private var mDataSetObserver: AdapterDataSetObserver? = null
+    private var mAdapter: BaseFlowAdapter<*, *>? = null
+    private var mOnTagClickListener: OnTagClickListener? = null
+    private var mOnTagSelectListener: OnTagSelectListener<*>? = null
     private var mTagShowMode = FLOW_TAG_SHOW_SINGLE_LINE
     private var mTagCheckMode = FLOW_TAG_CHECKED_NONE
     private var cancel = false
@@ -179,7 +179,7 @@ class FlowTagLayout<T : OptionCheck?> : ViewGroup {
         val allDatas: List<OptionCheck>? = getAdapter()?.getData()
         for (i in allDatas?.indices!!) {
             val checkItem = allDatas[i]
-            val childView = mAdapter!!.getBaseItemView(i, mLayoutInflater, this)
+            val childView = mAdapter?.getBaseItemView(i, mLayoutInflater, this)
             addView(childView, MarginLayoutParams(LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)))
             if (mTagCheckMode == FLOW_TAG_CHECKED_SINGLE) {
                 if (checkItem.isChecked() && !isSetted) {
@@ -191,21 +191,17 @@ class FlowTagLayout<T : OptionCheck?> : ViewGroup {
             if (checkItem.isChecked()) {
                 mSelects.add(checkItem as T)
             }
-            childView.isSelected = checkItem.isChecked()
-            childView.setOnClickListener { handlerItemClick(childView, checkItem, i) }
+            childView?.isSelected = checkItem.isChecked()
+            childView?.setOnClickListener { handlerItemClick(childView, checkItem, i) }
         }
     }
 
     private fun handlerItemClick(childView: View, checkItem: OptionCheck, position: Int) {
         if (mTagCheckMode == FLOW_TAG_CHECKED_NONE) {
-            if (mOnTagClickListener != null) {
-                mOnTagClickListener!!.onItemClick(this@FlowTagLayout, childView, position)
-            }
+            mOnTagClickListener?.onItemClick(this@FlowTagLayout, childView, position)
         } else if (mTagCheckMode == FLOW_TAG_CHECKED_SINGLE) {
             if (cancel && mSelects.contains(checkItem as T)) {
-                if (mOnTagClickListener != null) {
-                    mOnTagClickListener!!.onItemClick(this@FlowTagLayout, childView, position)
-                }
+                mOnTagClickListener?.onItemClick(this@FlowTagLayout, childView, position)
                 return
             }
             mSelects.clear()
@@ -217,9 +213,7 @@ class FlowTagLayout<T : OptionCheck?> : ViewGroup {
                 mSelects.add(checkItem as T)
             }
             childView.isSelected = checkItem.isChecked()
-            if (mOnTagClickListener != null) {
-                mOnTagClickListener!!.onItemClick(this@FlowTagLayout, childView, position)
-            }
+            mOnTagClickListener?.onItemClick(this@FlowTagLayout, childView, position)
         } else if (mTagCheckMode == FLOW_TAG_CHECKED_MULTI) {
             checkItem.setChecked(!checkItem.isChecked())
             childView.isSelected = checkItem.isChecked()
@@ -228,9 +222,7 @@ class FlowTagLayout<T : OptionCheck?> : ViewGroup {
             } else if (mSelects.contains(checkItem as T)) {
                 mSelects.remove(checkItem)
             }
-            if (mOnTagSelectListener != null) {
-                mOnTagSelectListener!!.onItemSelect(this@FlowTagLayout, mSelects as Set<Nothing>)
-            }
+            mOnTagSelectListener?.onItemSelect(this@FlowTagLayout, mSelects as Set<Nothing>)
         }
     }
 
@@ -257,15 +249,13 @@ class FlowTagLayout<T : OptionCheck?> : ViewGroup {
 
     fun setAdapter(adapter: BaseFlowAdapter<*, *>?) {
         if (mAdapter != null && mDataSetObserver != null) {
-            mAdapter!!.unregisterAdapterDataObserver(mDataSetObserver!!)
+            mAdapter?.unregisterAdapterDataObserver(mDataSetObserver!!)
         }
         removeAllViews()
         mAdapter = adapter
-        if (mAdapter != null) {
-            mDataSetObserver = AdapterDataSetObserver()
-            mAdapter!!.registerAdapterDataObserver(mDataSetObserver!!)
-            mAdapter!!.notifyDataSetChanged()
-        }
+        mDataSetObserver = AdapterDataSetObserver()
+        mAdapter?.registerAdapterDataObserver(mDataSetObserver!!)
+        mAdapter?.notifyDataSetChanged()
     }
 
     fun getTagCheckMode(): Int {

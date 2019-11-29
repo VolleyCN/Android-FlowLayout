@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FlowLayout</string>
+    <string name="tag_add">添加标签</string>
+    <string name="tag_remove">移除标签</string>
 </resources>
