@@ -1,9 +1,9 @@
 # FlowLayout
-流式布局，适合用于标签，分类筛选等。适配器方式调用，支持单选，多选，自用显示，单行显示（类似listview），指定显示条数（类似gridview）<br><br>
+**流式布局，适合用于标签，分类筛选等。适配器方式调用，支持单选，多选，自用显示，单行显示（类似listview），指定显示条数（类似gridview）**
 
 ![demo](https://github.com/VolleyCN/Android-FlowLayout/blob/master/image/demo.gif)
-###怎么样使用？
-###1.在项目根build.gradle中
+##怎么样使用？
+##1.在项目根build.gradle中
 `
 allprojects { 
 	repositories { 
@@ -25,6 +25,7 @@ dependencies {
 	 implementation 'com.github.VolleyCN.Android-FlowLayout:library:1.0.1'
 }
 `
+### 布局文件
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -65,7 +66,7 @@ dependencies {
         android:layout_height="wrap_content" />
 </LinearLayout>
 ```
-
+### 代码使用
 ```Kotlin
 tagLayout.setTagCheckedMode(FlowTagLayout.FLOW_TAG_CHECKED_MULTI)//多选模式
 tagLayout.setTagShowMode(FlowTagLayout.FLOW_TAG_SHOW_SINGLE_LINE)//单行显示
