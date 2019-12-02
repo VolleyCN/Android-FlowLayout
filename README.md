@@ -19,11 +19,11 @@
 ### 2.在项目build.gradle中
 ### kotlin 版本 
     dependencies {
-    	 implementation 'com.github.VolleyCN.Android-FlowLayout:librarykotlin:1.0.1'
+    	 implementation 'com.github.VolleyCN.Android-FlowLayout:librarykotlin:1.0.2'
     }
 ### java 版本
     dependencies {
-    	 implementation 'com.github.VolleyCN.Android-FlowLayout:library:1.0.1'
+    	 implementation 'com.github.VolleyCN.Android-FlowLayout:library:1.0.2'
     }
 ### 布局文件
 ```XML
