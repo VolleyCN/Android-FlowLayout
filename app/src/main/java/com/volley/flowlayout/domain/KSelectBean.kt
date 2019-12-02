@@ -1,23 +1,23 @@
 package com.volley.flowlayout.domain
 
 import com.volley.library.flowtag.OptionCheck
-import java.util.*
-import kotlin.collections.ArrayList
 
 /**
  * @Describe
  * @Date : 2019-11-29
- * @Email : zhangmeng@newstylegroup.com
- * @Author : MENG
+ * @Email : volleychzm@gmail.com
+ * @Author : volley
  */
 class KSelectBean {
     lateinit var title: String
     var tags: MutableList<KTagBean> = ArrayList()
     var isExpand: Boolean = false
+
     data class KTagBean(val tagName: String, val tagKey: String, var checked: Boolean?) : OptionCheck {
         override fun isChecked(): Boolean {
             return checked ?: false
         }
+
         override fun setChecked(check: Boolean) {
             this.checked = check
         }

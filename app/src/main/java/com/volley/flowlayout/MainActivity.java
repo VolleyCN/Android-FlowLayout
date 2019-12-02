@@ -19,7 +19,12 @@ import com.volley.library.flowtag.adapter.BaseTagHolder;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * @Describe
+ * @Date : 2019-11-29
+ * @Email : volleychzm@gmail.com
+ * @Author : volley
+ */
 public class MainActivity extends AppCompatActivity {
     private BaseQuickAdapter mSelectAdapter;
 

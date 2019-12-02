@@ -18,9 +18,9 @@ import java.util.*
 
 /**
  * @Describe
- * @Date : 2019-11-28
- * @Email : zhangmeng@newstylegroup.com
- * @Author : MENG
+ * @Date : 2019-11-29
+ * @Email : volleychzm@gmail.com
+ * @Author : volley
  */
 class BaseTagHolder(view: View) : android.support.v7.widget.RecyclerView.ViewHolder(view) {
     private lateinit var adapter: BaseFlowAdapter<*, *>

@@ -14,10 +14,10 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * FlowTagLayout
- *
- * @author mengzhang
- * @time 2018/10/9 下午2:27
+ * @Describe
+ * @Date : 2019-11-29
+ * @Email : volleychzm@gmail.com
+ * @Author : volley
  */
 public class FlowTagLayout<T extends OptionCheck> extends ViewGroup {
     public static final int FLOW_TAG_CHECKED_NONE = 0;

@@ -2,7 +2,12 @@ package com.volley.flowlayout.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * @Describe
+ * @Date : 2019-11-29
+ * @Email : volleychzm@gmail.com
+ * @Author : volley
+ */
 public class SelectBean {
     private String title;
     private String key;

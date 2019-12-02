@@ -3,6 +3,12 @@ package com.volley.flowlayout.domain;
 
 import com.volley.library.flowtag.OptionCheck;
 
+/**
+ * @Describe
+ * @Date : 2019-11-29
+ * @Email : volleychzm@gmail.com
+ * @Author : volley
+ */
 public class TagBean implements OptionCheck {
     private String tagName;
     private String tagKey;

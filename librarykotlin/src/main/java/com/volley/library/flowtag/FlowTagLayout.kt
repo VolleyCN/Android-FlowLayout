@@ -11,9 +11,9 @@ import java.util.*
 
 /**
  * @Describe
- * @Date : 2019-11-28
- * @Email : zhangmeng@newstylegroup.com
- * @Author : MENG
+ * @Date : 2019-11-29
+ * @Email : volleychzm@gmail.com
+ * @Author : volley
  */
 class FlowTagLayout<T : OptionCheck?> : ViewGroup {
     private var mLayoutInflater: LayoutInflater

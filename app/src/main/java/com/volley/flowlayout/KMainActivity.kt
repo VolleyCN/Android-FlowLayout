@@ -14,7 +14,12 @@ import com.volley.library.flowtag.FlowTagLayout
 import com.volley.library.flowtag.adapter.BaseFlowAdapter
 import com.volley.library.flowtag.adapter.BaseTagHolder
 import java.util.*
-
+/**
+ * @Describe
+ * @Date : 2019-11-29
+ * @Email : volleychzm@gmail.com
+ * @Author : volley
+ */
 class KMainActivity : AppCompatActivity() {
     private lateinit var adapter: BaseQuickAdapter<KSelectBean, BaseViewHolder>
     override fun onCreate(savedInstanceState: Bundle?) {

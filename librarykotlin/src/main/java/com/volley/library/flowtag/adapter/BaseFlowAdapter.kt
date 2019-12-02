@@ -13,7 +13,12 @@ import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.Modifier
 import java.lang.reflect.ParameterizedType
 import java.util.*
-
+/**
+ * @Describe
+ * @Date : 2019-11-29
+ * @Email : volleychzm@gmail.com
+ * @Author : volley
+ */
 abstract class BaseFlowAdapter<T : OptionCheck, K : BaseTagHolder?> @JvmOverloads constructor(@LayoutRes layoutResId: Int, data: List<T>? = null) : RecyclerView.Adapter<K>() {
     protected var mContext: Context? = null
     protected var mLayoutResId = 0

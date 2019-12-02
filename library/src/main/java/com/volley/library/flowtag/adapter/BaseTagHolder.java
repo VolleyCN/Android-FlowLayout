@@ -24,7 +24,12 @@ import android.widget.TextView;
 
 import java.util.HashSet;
 import java.util.Set;
-
+/**
+ * @Describe
+ * @Date : 2019-11-29
+ * @Email : volleychzm@gmail.com
+ * @Author : volley
+ */
 public class BaseTagHolder extends RecyclerView.ViewHolder {
     private final SparseArray<View> views;
     private final HashSet<Integer> nestViews;

@@ -1,10 +1,13 @@
 package com.volley.library.flowtag;
 
 /**
- * Created by mengzhang on 2018/1/8.
+ * @Describe
+ * @Date : 2019-11-29
+ * @Email : volleychzm@gmail.com
+ * @Author : volley
  */
-
 public interface OptionCheck {
     boolean isChecked();
+
     void setChecked(boolean checked);
 }

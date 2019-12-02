@@ -18,7 +18,12 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
+/**
+ * @Describe
+ * @Date : 2019-11-29
+ * @Email : volleychzm@gmail.com
+ * @Author : volley
+ */
 public abstract class BaseFlowAdapter<T, K extends BaseTagHolder> extends RecyclerView.Adapter<K> {
     protected Context mContext;
     protected int mLayoutResId;
