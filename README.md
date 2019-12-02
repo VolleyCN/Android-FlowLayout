@@ -4,11 +4,11 @@
 
 ![demo展示](https://github.com/VolleyCN/Android-FlowLayout/blob/master/image/demo.gif "demo展示")
 
-**------------**
+------------
 
-###怎么样使用？
+### 怎么样使用？
 
-###1.在项目根build.gradle中
+### 1.在项目根build.gradle中
     allprojects {
         repositories {
             jcenter()
