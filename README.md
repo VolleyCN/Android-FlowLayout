@@ -4,16 +4,17 @@
 
 ![demo展示](https://github.com/VolleyCN/Android-FlowLayout/blob/master/image/demo.gif "demo展示")
 
-------------
+**------------**
 
 ###怎么样使用？
 
 ###1.在项目根build.gradle中
-    allprojects { 
-    	repositories { 
-    		... 
-    		maven { url 'https://jitpack.io' } 
-    	} 
+    allprojects {
+        repositories {
+            jcenter()
+            mavenCentral()
+            maven { url 'https://jitpack.io' }
+        }
     }
 ### 2.在项目build.gradle中
 ### kotlin 版本 
