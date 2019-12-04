@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.volley.library.flowtag.adapter.BaseFlowAdapter
 import java.util.*
+import kotlin.math.max
 
 /**
  * @Describe
@@ -83,11 +84,11 @@ class FlowTagLayout<T : OptionCheck?> : ViewGroup {
             val realChildWidth = childWidth + mlp.leftMargin + mlp.rightMargin
             val realChildHeight = childHeight + mlp.topMargin + mlp.bottomMargin
             if (mTagShowMode == FLOW_TAG_SHOW_SINGLE_LINE) {
-                resultWidth = Math.max(lineWidth, realChildWidth)
+                resultWidth = max(lineWidth, realChildWidth)
                 resultHeight += realChildHeight
             } else if (mTagShowMode == FLOW_TAG_SHOW_FREE || mTagShowMode == FLOW_TAG_SHOW_SPAN) { //如果当前一行的宽度加上要加入的子view的宽度大于父容器给的宽度，就换行
                 if (lineWidth + realChildWidth > sizeWidth) { //换行
-                    resultWidth = Math.max(lineWidth, realChildWidth)
+                    resultWidth = max(lineWidth, realChildWidth)
                     resultHeight += realChildHeight
                     //换行了，lineWidth和lineHeight重新算
                     lineWidth = realChildWidth
@@ -95,11 +96,11 @@ class FlowTagLayout<T : OptionCheck?> : ViewGroup {
                 } else { //不换行，直接相加
                     lineWidth += realChildWidth
                     //每一行的高度取二者最大值
-                    lineHeight = Math.max(lineHeight, realChildHeight)
+                    lineHeight = max(lineHeight, realChildHeight)
                 }
-                //最好一个不换行
+                //最后一个不换行
                 if (i == childCount - 1) {
-                    resultWidth = Math.max(lineWidth, resultWidth)
+                    resultWidth = max(lineWidth, resultWidth)
                     resultHeight += lineHeight
                 }
             }
@@ -197,32 +198,36 @@ class FlowTagLayout<T : OptionCheck?> : ViewGroup {
     }
 
     private fun handlerItemClick(childView: View, checkItem: OptionCheck, position: Int) {
-        if (mTagCheckMode == FLOW_TAG_CHECKED_NONE) {
-            mOnTagClickListener?.onItemClick(this@FlowTagLayout, childView, position)
-        } else if (mTagCheckMode == FLOW_TAG_CHECKED_SINGLE) {
-            if (cancel && mSelects.contains(checkItem as T)) {
+        when (mTagCheckMode) {
+            FLOW_TAG_CHECKED_NONE -> {
                 mOnTagClickListener?.onItemClick(this@FlowTagLayout, childView, position)
-                return
             }
-            mSelects.clear()
-            if (checkItem.isChecked()) {
-                checkItem.setChecked(false)
-            } else {
-                clearAllOption()
-                checkItem.setChecked(true)
-                mSelects.add(checkItem as T)
+            FLOW_TAG_CHECKED_SINGLE -> {
+                if (cancel && mSelects.contains(checkItem as T)) {
+                    mOnTagClickListener?.onItemClick(this@FlowTagLayout, childView, position)
+                    return
+                }
+                mSelects.clear()
+                if (checkItem.isChecked()) {
+                    checkItem.setChecked(false)
+                } else {
+                    clearAllOption()
+                    checkItem.setChecked(true)
+                    mSelects.add(checkItem as T)
+                }
+                childView.isSelected = checkItem.isChecked()
+                mOnTagClickListener?.onItemClick(this@FlowTagLayout, childView, position)
             }
-            childView.isSelected = checkItem.isChecked()
-            mOnTagClickListener?.onItemClick(this@FlowTagLayout, childView, position)
-        } else if (mTagCheckMode == FLOW_TAG_CHECKED_MULTI) {
-            checkItem.setChecked(!checkItem.isChecked())
-            childView.isSelected = checkItem.isChecked()
-            if (checkItem.isChecked()) {
-                mSelects.add(checkItem as T)
-            } else if (mSelects.contains(checkItem as T)) {
-                mSelects.remove(checkItem)
+            FLOW_TAG_CHECKED_MULTI -> {
+                checkItem.setChecked(!checkItem.isChecked())
+                childView.isSelected = checkItem.isChecked()
+                if (checkItem.isChecked()) {
+                    mSelects.add(checkItem as T)
+                } else if (mSelects.contains(checkItem as T)) {
+                    mSelects.remove(checkItem)
+                }
+                mOnTagSelectListener?.onItemSelect(this@FlowTagLayout, mSelects as Set<Nothing>)
             }
-            mOnTagSelectListener?.onItemSelect(this@FlowTagLayout, mSelects as Set<Nothing>)
         }
     }
 
